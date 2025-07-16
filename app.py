@@ -3,8 +3,8 @@ import arxiv
 import pandas as pd
 import google.generativeai as genai
 
-# 初始化 Gemini（安全方式）
-genai.configure(api_key=st.secrets["api_key"])
+# 初始化 Gemini
+genai.configure(api_key=st.secrets["AIzaSyBzhd8dyUzdgGMfNr1ELP2dy95YTB3oN0U"])
 model = genai.GenerativeModel('gemini-pro')
 
 # 页面设置
@@ -59,18 +59,14 @@ if st.button("开始分析"):
     """
 
     with st.spinner("🤖 Gemini 正在生成分析..."):
-        try:
-            response = model.generate_content(prompt)
-            result_text = response.text
-        except Exception as e:
-            st.error(f"Gemini 出错了：{e}")
-            result_text = ""
+        response = model.generate_content(prompt)
+        result_text = response.text
 
     # 展示分析结果
-    if result_text:
-        st.markdown("### 🔍 Gemini 总结与对比分析")
-        st.markdown(result_text)
+    st.markdown("### 🔍 Gemini 总结与对比分析")
+    st.markdown(result_text)
 
     # 下载原始数据
     csv = df.to_csv(index=False).encode('utf-8-sig')
     st.download_button("📥 下载文献数据 CSV", csv, "papers.csv", "text/csv")
+
