@@ -4,7 +4,7 @@ import pandas as pd
 import google.generativeai as genai
 
 # 初始化 Gemini
-genai.configure(api_key=st.secrets["AIzaSyBzhd8dyUzdgGMfNr1ELP2dy95YTB3oN0U"])
+genai.configure(api_key=st.secrets["api_key"])
 model = genai.GenerativeModel('gemini-pro')
 
 # 页面设置
