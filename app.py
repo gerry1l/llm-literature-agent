@@ -3,9 +3,9 @@ import arxiv
 import pandas as pd
 import openai
 
-# 设置 OpenAI API 密钥（从 secrets 中读取）
-openai.api_key = st.secrets["api_key"]
-client = openai.OpenAI()
+# 正确创建 OpenAI 客户端（适配 openai>=1.0.0）
+client = openai.OpenAI(api_key=st.secrets["api_key"])
+
 
 # 页面设置
 st.set_page_config(page_title="AI 文献分析 Agent", layout="wide")
