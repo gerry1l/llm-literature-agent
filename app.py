@@ -5,7 +5,8 @@ import google.generativeai as genai
 
 # 初始化 Gemini
 genai.configure(api_key=st.secrets["api_key"])
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel(model_name="models/gemini-pro")
+
 
 # 页面设置
 st.set_page_config(page_title="AI 文献分析 Agent", layout="wide")
