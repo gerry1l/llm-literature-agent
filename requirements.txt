@@ -1,4 +1,4 @@
 streamlit
 arxiv
 pandas
-google-generativeai
+openai
